@@ -1,8 +1,18 @@
-
+from urllib.parse import urlparse
 import os
 import requests
 import time
+# Local file URL
+file_url = "file:///$1"
 
+# Parse the URL to extract the path
+file_path = urlparse(file_url).path
+
+# Read the file content
+with open(file_path, 'r', encoding='utf-8') as file:
+    prompt = file.read()
+
+print(prompt)
 
 request = requests.post(
     'https://api.bfl.ml/v1/flux-pro-1.1',
@@ -12,7 +22,7 @@ request = requests.post(
         'Content-Type': 'application/json',
     },
     json={
-        'prompt': 'Realistic Cartoon, A portrait of a woman, blue eyes, blonde hair, wearing a yellow sundress with white polka dots',
+        'prompt': prompt,
         'width': 768,
         'height': 768,
     },

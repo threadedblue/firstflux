@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}", // This runs the currently open file
+            "console": "integratedTerminal",
+            "args": ["--param1", "michael-calamay.prom${pathSeparator}"]
+        }
+    ]
+}
