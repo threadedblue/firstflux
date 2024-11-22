@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from urllib.parse import urlparse
 import os
 import requests
@@ -14,13 +13,6 @@ with open(file_path, 'r', encoding='utf-8') as file:
     prompt = file.read()
 
 print(prompt)
-=======
-
-import os
-import requests
-import time
-
->>>>>>> origin/main
 
 request = requests.post(
     'https://api.bfl.ml/v1/flux-pro-1.1',
@@ -30,11 +22,7 @@ request = requests.post(
         'Content-Type': 'application/json',
     },
     json={
-<<<<<<< HEAD
         'prompt': prompt,
-=======
-        'prompt': 'Realistic Cartoon, A portrait of a woman, blue eyes, blonde hair, wearing a yellow sundress with white polka dots',
->>>>>>> origin/main
         'width': 768,
         'height': 768,
     },
