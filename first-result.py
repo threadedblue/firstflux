@@ -3,7 +3,7 @@ import requests
 from io import BytesIO
 
 # The image URL from the response
-image_url = "$1"
+image_url = sys.argv[1]
 
 # Fetch the image from the URL
 response = requests.get(image_url)
