@@ -44,16 +44,12 @@ log.info("Post call")
 
 request = requests.post(
     'https://api.bfl.ml/v1/flux-pro-1.1',
-    headers={
+    headers = {
         'accept': 'application/json',
         'x-key': os.environ.get("BFL_API_KEY"),
         'Content-Type': 'application/json',
     },
-    json={
-        'prompt': prompt,
-        'width': 768,
-        'height': 768,
-    },
+    json = prompt
 ).json()
 
 log.debug(request)
