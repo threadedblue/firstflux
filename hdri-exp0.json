@@ -1,8 +1,9 @@
 {
-    "prompt": "A rectangle, blue in the center of the frame",
+    "prompt": "A chair, blue in the center of the image. ",
     "aspect_ratio": "16:9",
     "output_format": "png",
     "safety_tolerance": 2,
-    "raw": false,
-    "image_prompt": "file:///Users/gcr/semita.Wk/flux/firstflux/scene-office.png"
+    "raw": false, 
+    "seed" : 4759,
+    "steps" : 10
 }

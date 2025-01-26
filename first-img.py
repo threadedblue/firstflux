@@ -13,22 +13,30 @@ import json
 import base64
 import argparse
 
+IMAGE_PROMPT  = "image_prompt"
+LOG_FILE = "first.logger"
+
+def imageEncode(prompt): 
+    if IMAGE_PROMPT in  prompt:
+        with open(prompt[IMAGE_PROMPT], "rb") as image_file:
+            prompt[IMAGE_PROMPT] = base64.b64encode(image_file.read()).decode('utf-8')
+    return prompt
+
 parser = argparse.ArgumentParser(description="Handle POSIX-style prompts in Python")
-parser.add_argument("-t", "--text", help="Process as text to image", required=True)
-parser.add_argument("-i", "--image", help="Process as image to image.")
+parser.add_argument("-p", "--prompt", help="Prompt file.")
 
 # Parse arguments
 args = parser.parse_args()
 
 # Create a custom logger
-log = logging.getLogger("first_logger")
+log = logging.getLogger(LOG_FILE)
 
 # Set the logging level
 log.setLevel(logging.DEBUG)
 
 # Create handlers
 console_handler = logging.StreamHandler()
-file_handler = logging.FileHandler("first.log")
+file_handler = logging.FileHandler(LOG_FILE)
 
 # Set levels for handlers
 console_handler.setLevel(logging.DEBUG)
@@ -37,22 +45,19 @@ file_handler.setLevel(logging.DEBUG)
 log.addHandler(console_handler)
 log.addHandler(file_handler)
 # Local file URL
-file_url = sys.argv[1]
+file_url = args.prompt
 
 # Read the file content
 log.info("Reading prompt file=" + file_url)
-
 with open(file_url, 'r', encoding='utf-8') as file:
     prompt = json.load(file)
 log.debug("prompt=" + str(prompt))
 
 image_path = "scene-office1.png"
 
-log.info("base64_image")
-with open(image_path, "rb") as image_file:
-    base64_image = base64.b64encode(image_file.read()).decode('utf-8')
-
-prompt["image_prompt"] = base64_image
+log.info("Create base64_image")
+imageEncode(prompt)
+log.debug("prompt=" + str(prompt))
 
 log.info("Post call")
 
@@ -107,8 +112,5 @@ if response.status_code == 200:
     image = Image.open(BytesIO(response.content))
     # Display the image
     image.show()  # Opens the image in the default viewer
-
-    log.info("Saving the image")
-    image.save(sys.argv[2], format="PNG")
 else:
     log.error(f"Failed to fetch the image: {response.status_code}")

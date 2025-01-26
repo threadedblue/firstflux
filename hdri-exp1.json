@@ -1,7 +1,11 @@
 {
-    "prompt": "A rectangle, blue in the center of the frame",
+    "prompt": "Modify base A chair, blue in the right of the image. ",
     "aspect_ratio": "16:9",
     "output_format": "png",
     "safety_tolerance": 2,
-    "raw": false
+    "raw": false,
+    "seed" : 4759,
+    "steps" : 10,
+    "image_prompt" : "hdri-exp0.png",
+    "image_prompt_strength" : 0.5
 }
