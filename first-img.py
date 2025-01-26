@@ -10,6 +10,15 @@ from PIL import Image
 from io import BytesIO
 import logging
 import json
+import base64
+import argparse
+
+parser = argparse.ArgumentParser(description="Handle POSIX-style prompts in Python")
+parser.add_argument("-t", "--text", help="Process as text to image", required=True)
+parser.add_argument("-i", "--image", help="Process as image to image.")
+
+# Parse arguments
+args = parser.parse_args()
 
 # Create a custom logger
 log = logging.getLogger("first_logger")
@@ -36,6 +45,14 @@ log.info("Reading prompt file=" + file_url)
 with open(file_url, 'r', encoding='utf-8') as file:
     prompt = json.load(file)
 log.debug("prompt=" + str(prompt))
+
+image_path = "scene-office1.png"
+
+log.info("base64_image")
+with open(image_path, "rb") as image_file:
+    base64_image = base64.b64encode(image_file.read()).decode('utf-8')
+
+prompt["image_prompt"] = base64_image
 
 log.info("Post call")
 

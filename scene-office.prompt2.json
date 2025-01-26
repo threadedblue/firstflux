@@ -1,0 +1,9 @@
+{
+    "prompt" : "A continuation of a realistic cartoon office interior, dim lighting, showing the area to the right of a desk with a green-shaded lamp. The window on the right wall is now to the left, with blinds partially closed. A coffee machine sits on top of a file cabinet closer to the left, while additional objects like a calendar and a bookshelf are closer to the center. A closed doorway appears on the far right. The floor remains wooden, with no visible wall to the far left. Perspective and lighting remain consistent with the previous scene.",
+    "aspect_ratio" : "16:9",
+    "output_format" : "png",
+    "safety_tolerance" : 2,
+    "raw" : false,
+    "image_prompt" : "",
+    "image_prompt_strength" : 0.2
+}

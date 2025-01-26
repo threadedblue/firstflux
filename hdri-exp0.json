@@ -1,0 +1,8 @@
+{
+    "prompt": "A rectangle, blue in the center of the frame",
+    "aspect_ratio": "16:9",
+    "output_format": "png",
+    "safety_tolerance": 2,
+    "raw": false,
+    "image_prompt": "file:///Users/gcr/semita.Wk/flux/firstflux/scene-office.png"
+}

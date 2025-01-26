@@ -1,9 +1,9 @@
 {
-    "prompt" : "A continuation of a realistic cartoon office interior, dim lighting, showing the area to the right of a desk with a green-shaded lamp. The window on the right wall is now further to the center, with blinds partially closed. A coffee machine sits on top of a file cabinet closer to the center, while additional objects like a whiteboard and a bookshelf come into view on the far right. The floor remains wooden, with no visible wall to the far right. Perspective and lighting remain consistent with the previous scene.",
+    "prompt" : "A continuation of a realistic cartoon office interior, dim lighting, showing the area to the right of a desk with a green-shaded lamp. The wall to the left is no longer visible. The window on the right wall is now further to the center, with blinds partially closed. A coffee machine sits on top of a file cabinet closer to the center, while additional objects like a calendar and a bookshelf come into view on the far right. The floor remains wooden, with no visible wall to the far left. Perspective and lighting remain consistent with the previous scene.",
     "aspect_ratio" : "16:9",
     "output_format" : "png",
     "safety_tolerance" : 2,
     "raw" : false,
-    "image_prompt" : "file:///Users/gcr/semita.Wk/flux/firstflux/scene-office0.png",
+    "image_prompt" : "",
     "image_prompt_strength" : 0.2
 }
