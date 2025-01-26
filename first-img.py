@@ -1,4 +1,4 @@
-#!/usr/bin/env pytnon
+#!/usr/bin/env python
 
 from urllib.parse import urlparse
 from pathlib import Path
@@ -9,6 +9,7 @@ import time
 from PIL import Image
 from io import BytesIO
 import logging
+import json
 
 # Create a custom logger
 log = logging.getLogger("first_logger")
@@ -24,21 +25,17 @@ file_handler = logging.FileHandler("first.log")
 console_handler.setLevel(logging.DEBUG)
 file_handler.setLevel(logging.DEBUG)
 
+log.addHandler(console_handler)
+log.addHandler(file_handler)
 # Local file URL
 file_url = sys.argv[1]
-
-# Parse the URL to extract the path
-# current_dir = Path.cwd()
-# absolute_path = urlparse(file_url).path
-# relative_path = Path(absolute_path).relative_to(absolute_path)
 
 # Read the file content
 log.info("Reading prompt file=" + file_url)
 
 with open(file_url, 'r', encoding='utf-8') as file:
-    prompt = file.read()
-
-log.debug(prompt)
+    prompt = json.load(file)
+log.debug("prompt=" + str(prompt))
 
 log.info("Post call")
 
